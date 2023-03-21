@@ -38,4 +38,9 @@ void main() {
   print(mySumbol); // Symbol("myApi")
 
   // Null
+  // int age; // non-nullable
+  // print(age); // Error!
+
+  int? age; // age == null
+  print(age);
 }
