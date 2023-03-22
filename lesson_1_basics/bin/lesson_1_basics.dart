@@ -1,46 +1,29 @@
 void main() {
-  // Numbers (num -> int and double)
-  double myDouble = 10.5;
-  double anotherDouble = 10;
-  print(anotherDouble);
+  // Downcasting
+  num someNumber = 5;
+  final someInt = someNumber as int;
+  print(someInt.isEven); // false
 
-  // String (UTF - 16)
-  String myName = 'Aleksey';
-  String mySurname = 'Kuzmin';
+  // final someDouble = someNumber as double;
+  // print(someDouble);  // Error: 5 isn't a double!
 
-  String name = 'What\'s your name?';
+  final someDouble = someNumber.toDouble();
+  print(someDouble); // 5.0
 
-  String myFio = '''
-  Aleksey
-  Kuzmin
-  ''';
-  print(myFio);
+  // String -> int
+  var myInt = int.parse('10');
+  print(myInt); // 10
 
-  String personInfo = 'I\'m $myName and my surname ${mySurname.toUpperCase()}';
-  print(personInfo);
-  print(personInfo[0]); // I
+  // String -> double
+  var myDouble = double.parse('5.5');
+  print(myDouble); // 5.5
 
-  // bool
-  var a = true;
-  bool b = false;
+  // int -> String
+  String s1 = 10.toString();
+  String s2 = myInt.toString();
 
-  // Rune (UTF - 32)
-  Runes hello = Runes('Hello Dart');
-  print(hello); // (72, 101, 108, 108, 111, 32, 68, 97, 114, 116)
-
-  // \uXXXX
-  var input = Runes('\u2665 \u{1f600}');
-  print(input); // (9829, 32, 128512)
-  print(String.fromCharCodes(input)); // ♥ 😀
-
-  // Symbol
-  var mySumbol = #myApi;
-  print(mySumbol); // Symbol("myApi")
-
-  // Null
-  // int age; // non-nullable
-  // print(age); // Error!
-
-  int? age; // age == null
-  print(age);
+  // double -> String
+  String s3 = 3.14159.toString();
+  String s4 = 3.14159.toStringAsFixed(2);
+  print(s4); // 3.14
 }
