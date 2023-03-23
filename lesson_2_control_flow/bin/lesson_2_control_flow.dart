@@ -1,6 +1,7 @@
 /// *******************************************************************************************
 /// if / else
 
+/*
 void main() {
   // if / else
   var grade = 4;
@@ -38,4 +39,24 @@ void main() {
 
   int z = x < y ? (x + y) : (x - y);
   print(z); // 3
+}
+*/
+
+/// *******************************************************************************************
+/// switch
+
+void main() {
+  // Switch / Case
+  String grade = 'C';
+
+  switch (grade) {
+    case 'A':
+      print('Excellent grade of A');
+      break;
+    case 'B':
+      print('Very good!');
+      break;
+    default:
+      print('Failed');
+  }
 }
