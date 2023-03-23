@@ -1,6 +1,7 @@
 /// *******************************************************************************************
 /// Basic operations with Sets
 
+/*
 import 'dart:math';
 
 void main() {
@@ -68,4 +69,26 @@ void main() {
     uniqueValue.add(number);
   }
   print(duplicates);
+}
+*/
+
+/// *******************************************************************************************
+/// Mathematical operations on Sets
+
+void main() {
+  // Intersections
+  final setA = {1, 2, 4, 3, 5};
+  final setB = {3, 6, 7, 5};
+  final intersection = setA.intersection(setB);
+  print(intersection); // {3, 5}
+
+  // Unions
+  final union = setA.union(setB);
+  print(union); // {1, 2, 4, 3, 5, 6, 7}
+
+  // Difference
+  final differenceA = setA.difference(setB);
+  print(differenceA); // {1, 2, 4}
+  final differenceB = setB.difference(setA);
+  print(differenceB); // {6, 7}
 }
