@@ -64,6 +64,7 @@ void main() {
 /// *******************************************************************************************
 /// Modifiable and Unmodifiable Lists
 
+/*
 void main() {
   // final fruits = ['apple', 'pineapple', 'watermelon'];
   // print(fruits);
@@ -97,4 +98,29 @@ void main() {
   final modifiableList = [DateTime.now(), DateTime.now()];
   final unmodifiableList = List.unmodifiable(modifiableList);
   print(unmodifiableList);
+}
+*/
+
+/// *******************************************************************************************
+/// List properties
+
+void main() {
+  const fruits = ['apple', 'pineapple', 'watermelon'];
+  print(fruits.first); // apple
+  print(fruits.last); // watermelon
+
+  print(fruits[0]); // apple
+  print(fruits[fruits.length - 1]); // watermelon
+
+  print(fruits.isEmpty); // false
+  print(fruits.isNotEmpty); // true
+
+  for (int index = 0; index < fruits.length; index++) {
+    final fruit = fruits[index];
+    print('I like $fruit');
+  }
+
+  for (final fruit in fruits) {
+    print('I don\'t like $fruit');
+  }
 }
