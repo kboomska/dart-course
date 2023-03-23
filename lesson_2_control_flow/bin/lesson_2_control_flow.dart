@@ -45,6 +45,7 @@ void main() {
 /// *******************************************************************************************
 /// switch
 
+/*
 void main() {
   // Switch / Case
   String grade = 'C';
@@ -58,5 +59,29 @@ void main() {
       break;
     default:
       print('Failed');
+  }
+}
+*/
+
+/// *******************************************************************************************
+/// do while and while
+
+void main() {
+  int counter = 0;
+
+  // do while
+  // do {
+  //   counter++;
+  //   if (counter == 4) {
+  //     // break;
+  //     continue;
+  //   }
+  //   print('Hello Dart $counter');
+  // } while (counter < 10);
+
+  // while
+  while (counter < 10) {
+    print('Hello Dart $counter');
+    counter++;
   }
 }
