@@ -104,6 +104,7 @@ void main() {
 /// *******************************************************************************************
 /// List properties
 
+/*
 void main() {
   const fruits = ['apple', 'pineapple', 'watermelon'];
   print(fruits.first); // apple
@@ -123,4 +124,35 @@ void main() {
   for (final fruit in fruits) {
     print('I don\'t like $fruit');
   }
+}
+*/
+
+/// *******************************************************************************************
+/// spread operator, if and for collections
+
+void main() {
+  // spread operator (...)
+  // collection if
+  // collection for
+
+  const orangeAllergy = true;
+
+  const appleAndPineapple = ['apple', 'pineapple'];
+  const orangeAndPear = [if (!orangeAllergy) 'orange', 'pear'];
+
+  // final fruits = ['watermelon'];
+
+  // fruits.addAll(appleAndPineapple);
+  // fruits.addAll(orangeAndPear);
+  // print(fruits);
+
+  final fruits = [
+    'watermelon',
+    ...appleAndPineapple,
+    ...orangeAndPear,
+  ];
+  print(fruits);
+
+  var bigFruits = ['BANANA', for (final fruit in fruits) fruit.toUpperCase()];
+  print(bigFruits);
 }
