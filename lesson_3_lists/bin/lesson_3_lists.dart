@@ -1,6 +1,7 @@
 /// *******************************************************************************************
 /// Basic operations with Lists
 
+/*
 void main() {
   // Create List
   var fruits = ['apple', 'pineapple', 'watermelon']; // List<String>
@@ -57,4 +58,43 @@ void main() {
 
   fruits.sort();
   print(fruits); // [avocado, banana, watermelon]
+}
+*/
+
+/// *******************************************************************************************
+/// Modifiable and Unmodifiable Lists
+
+void main() {
+  // final fruits = ['apple', 'pineapple', 'watermelon'];
+  // print(fruits);
+
+  // fruits = []; // Error! The List is final!
+  // print(fruits); // []
+
+  // fruits = ['orange', 'pear']; // Error! The List is final!
+  // print(fruits);
+
+  // fruits.remove('apple');
+  // fruits.add('orange');
+  // fruits[1] = 'avocado';
+  // print(fruits); // [pineapple, avocado, orange]
+
+  // Unmodifiable List
+  // const listOfFruits = ['apple', 'pineapple', 'watermelon'];
+  // listOfFruits.remove('apple'); // Runtime error!
+  // listOfFruits.add('orange'); // Runtime error!
+  // listOfFruits[1] = 'avocado'; // Runtime error!
+  // print(listOfFruits);
+
+  // Compile-time constant List
+  final fruits = const ['apple', 'pineapple', 'watermelon'];
+  // fruits.remove('apple'); // Runtime error!
+  // fruits.add('orange'); // Runtime error!
+  // fruits[1] = 'avocado'; // Runtime error!
+  // print(fruits);
+
+  // Create unmodifiable List
+  final modifiableList = [DateTime.now(), DateTime.now()];
+  final unmodifiableList = List.unmodifiable(modifiableList);
+  print(unmodifiableList);
 }
