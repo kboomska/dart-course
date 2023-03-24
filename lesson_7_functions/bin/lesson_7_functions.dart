@@ -34,6 +34,7 @@ String getAge(int age) => 'Your age $age';
 /// *******************************************************************************************
 /// Function parameters
 
+/*
 void main() {
   getPerson('Aleksey', 30);
   // getPerson(30, 'Aleksey');
@@ -62,4 +63,43 @@ void getPersonOptional(String name, [int? age]) {
 // Named parameters
 void getPersonNamed({String? name, int age = 0}) {
   print('Name: $name, Age: $age');
+}
+*/
+
+/// *******************************************************************************************
+/// Function as an Object
+
+void main() {
+  Function person = getName;
+  person(); // Aleksey
+  person = getLastName;
+  person(); // Kuzmin
+
+  getPerson(getName); // Aleksey
+  getPerson(getLastName); // Kuzmin
+
+  Function myPerson = getNameOrLastName('Test');
+  myPerson(); // Kuzmin
+}
+
+// Function as a returned value
+Function getNameOrLastName(String nameOrLastName) {
+  if (nameOrLastName == 'Aleksey') {
+    return getName;
+  } else {
+    return getLastName;
+  }
+}
+
+// Function as an Argument
+void getPerson(Function myFunction) {
+  myFunction();
+}
+
+void getName() {
+  print('Aleksey');
+}
+
+void getLastName() {
+  print('Kuzmin');
 }
