@@ -137,6 +137,7 @@ void addNumbers(int a, int b) {
 /// *******************************************************************************************
 /// Lexical scope
 
+/*
 String topLevelVariable = 'TopLevelVariable';
 
 void main() {
@@ -161,4 +162,27 @@ void main() {
   }
 
   myFunction();
+}
+*/
+
+/// *******************************************************************************************
+/// Closures
+
+void main() {
+  Function add = addNumbers(4); // add = sum & x = 4
+  int result = add(6); // result = 4 + 6
+  print(result); // 10
+
+  int anotherResult = addNumbers(5)(7); // x = 5 & y = 7
+  print(anotherResult); // 12
+}
+
+// External Function
+Function addNumbers(int x) {
+  // Nested Function
+  // int sum(int y) {
+  //   return x + y;
+  // }
+
+  return (int y) => x + y;
 }
