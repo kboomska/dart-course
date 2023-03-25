@@ -32,6 +32,7 @@ class Car {
 /// *******************************************************************************************
 /// Constructors
 
+/*
 void main() {
   // Car myCar = Car(); // Whith default Constructor
 
@@ -55,6 +56,48 @@ class Car {
   // }
 
   Car(this.carName, {this.color = 'Red'});
+
+  void start() {
+    print('The $color $carName has started.');
+  }
+
+  void stop() {
+    print('The $color $carName has stopped now.');
+  }
+}
+*/
+
+/// *******************************************************************************************
+/// Named Constructors
+
+void main() {
+  Car myCar = Car('BMW', 'Black');
+  myCar.start();
+
+  Car namedCar = Car.named();
+  namedCar.start();
+
+  Car anotherCar = Car.fromColor('GREY');
+  anotherCar.start();
+}
+
+class Car {
+  String? carName;
+  var color;
+
+  // Named Constructor
+  Car.named() {
+    carName = 'FORD';
+    color = 'GREEN';
+  }
+
+  // Named Constructor
+  Car.fromColor(var color) {
+    carName = 'MERSEDES';
+    this.color = color;
+  }
+
+  Car(this.carName, this.color);
 
   void start() {
     print('The $color $carName has started.');
