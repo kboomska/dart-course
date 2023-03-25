@@ -216,6 +216,7 @@ class Car {
 /// *******************************************************************************************
 /// Final properties
 
+/*
 void main() {
   Car car = Car('BMW', 45.0, 2);
   car.move();
@@ -235,5 +236,47 @@ class Car {
 
   void move() {
     print('The $carName has started. Percent way: $percentWay');
+  }
+}
+*/
+
+/// *******************************************************************************************
+/// Static Variables and Methods
+
+void main() {
+  Car car = Car('BMW', 'Red');
+  // Car.wheels = 4;
+  Car.setWheels(4);
+  car.checkMove();
+}
+
+class Car {
+  String carName;
+  String color;
+  static int wheels = 3;
+  // static const int wheels = 4;
+
+  // Car(this.carName, this.color);
+  Car(this.carName, this.color) {
+    var t = time(500, 80);
+    print('Time: $t');
+  }
+
+  static double time(int dist, double speed) => dist / speed;
+
+  static void setWheels(int value) {
+    if (value == 4) {
+      wheels = value;
+    } else {
+      print('Please, correct value (4)');
+    }
+  }
+
+  void checkMove() {
+    if (wheels < 4) {
+      print('The $carName is broken');
+    } else {
+      print('The $color $carName has started');
+    }
   }
 }
