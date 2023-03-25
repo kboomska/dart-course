@@ -189,6 +189,7 @@ class Car {
 /// *******************************************************************************************
 /// Getters and Setters
 
+/*
 void main() {
   var myCar = Car();
   myCar.carName = 'Ford'; // Implicit Setter
@@ -208,5 +209,31 @@ class Car {
 
   double get percentage {
     return _percentWay;
+  }
+}
+*/
+
+/// *******************************************************************************************
+/// Final properties
+
+void main() {
+  Car car = Car('BMW', 45.0, 2);
+  car.move();
+  print(car.wheels);
+}
+
+class Car {
+  String? carName;
+  double? percentWay;
+  final int wheels;
+
+  // Car(this.carName, this.percentWay, this.wheels);
+  Car(carName, percentWay, wheel) : wheels = wheel + 2 {
+    this.carName = carName;
+    this.percentWay = percentWay;
+  }
+
+  void move() {
+    print('The $carName has started. Percent way: $percentWay');
   }
 }
