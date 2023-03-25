@@ -70,6 +70,7 @@ class Car {
 /// *******************************************************************************************
 /// Named Constructors
 
+/*
 void main() {
   Car myCar = Car('BMW', 'Black');
   myCar.start();
@@ -97,6 +98,55 @@ class Car {
     this.color = color;
   }
 
+  Car(this.carName, this.color);
+
+  void start() {
+    print('The $color $carName has started.');
+  }
+
+  void stop() {
+    print('The $color $carName has stopped now.');
+  }
+}
+*/
+
+/// *******************************************************************************************
+/// Redirecting Constructors
+
+void main() {
+  Car myCar = Car('BMW', 'Black');
+  myCar.start();
+
+  Car namedCar = Car.named();
+  namedCar.start();
+
+  Car anotherCar = Car.fromColor('GREY');
+  anotherCar.start();
+}
+
+class Car {
+  String? carName;
+  var color;
+
+  // Named Constructor
+  // Car.named() {
+  //   carName = 'FORD';
+  //   color = 'GREEN';
+  // }
+
+  // Delegates to the main constructor
+  Car.named() : this('FORD', 'GREEN');
+
+  // Named Constructor
+  // Car.fromColor(var color) {
+  //   carName = 'MERSEDES';
+  //   this.color = color;
+  // }
+
+  // Delegates to the main constructor
+  Car.fromColor(var color) : this('MERSEDES', color);
+
+  // The main constructor for this class
   Car(this.carName, this.color);
 
   void start() {
