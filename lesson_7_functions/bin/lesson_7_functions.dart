@@ -109,6 +109,7 @@ void getLastName() {
 /// *******************************************************************************************
 /// Anonymous functions
 
+/*
 void main() {
   // Function addTwoNumbers = (int a, int b) {
   //   var sum = a + b;
@@ -130,4 +131,34 @@ int operationNumbers(int a, int b, Function operation) {
 void addNumbers(int a, int b) {
   var sum = a + b;
   print(sum);
+}
+*/
+
+/// *******************************************************************************************
+/// Lexical scope
+
+String topLevelVariable = 'TopLevelVariable';
+
+void main() {
+  String variableInsideMain = 'Variable Inside Main';
+
+  void myFunction() {
+    String variableInsideMyFunction = 'Variable Inside My Function';
+
+    print('Inside My Function');
+
+    void nestedFunction() {
+      String variableInsideNestedFunction = 'Variable Inside Nested Function';
+
+      // print('Inside Nested Function');
+      print(topLevelVariable);
+      print(variableInsideMain);
+      print(variableInsideMyFunction);
+      print(variableInsideNestedFunction);
+    }
+
+    nestedFunction();
+  }
+
+  myFunction();
 }
