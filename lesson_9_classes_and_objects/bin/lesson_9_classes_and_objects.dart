@@ -163,6 +163,7 @@ class Car {
 /// *******************************************************************************************
 /// Initializer list
 
+/*
 void main() {
   var myCar = Car(name: 'BMW', per: 24.6);
   myCar.infoCar();
@@ -181,5 +182,31 @@ class Car {
 
   void infoCar() {
     print('The $carName drove $percentWay% of the way.');
+  }
+}
+*/
+
+/// *******************************************************************************************
+/// Getters and Setters
+
+void main() {
+  var myCar = Car();
+  myCar.carName = 'Ford'; // Implicit Setter
+  print(myCar.carName); // Implicit Getter
+
+  myCar.percentage = -23.5; // Calling own Setter
+  print(myCar.percentage); // Calling own Getter
+}
+
+class Car {
+  String? carName; // Public
+  double _percentWay = 0; // Private
+
+  set percentage(double per) {
+    _percentWay = (per > 100 || per < 0) ? _percentWay = 0 : _percentWay = per;
+  }
+
+  double get percentage {
+    return _percentWay;
   }
 }
