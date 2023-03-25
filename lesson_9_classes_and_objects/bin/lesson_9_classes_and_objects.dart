@@ -113,6 +113,7 @@ class Car {
 /// *******************************************************************************************
 /// Redirecting Constructors
 
+/*
 void main() {
   Car myCar = Car('BMW', 'Black');
   myCar.start();
@@ -155,5 +156,30 @@ class Car {
 
   void stop() {
     print('The $color $carName has stopped now.');
+  }
+}
+*/
+
+/// *******************************************************************************************
+/// Initializer list
+
+void main() {
+  var myCar = Car(name: 'BMW', per: 24.6);
+  myCar.infoCar();
+}
+
+class Car {
+  String carName;
+  double percentWay;
+
+  Car({required String name, required double per})
+      : carName = name,
+        percentWay = per.roundToDouble() {
+    print('Other work');
+    percentWay = 100; // Overwrote the value from Initializer list
+  }
+
+  void infoCar() {
+    print('The $carName drove $percentWay% of the way.');
   }
 }
