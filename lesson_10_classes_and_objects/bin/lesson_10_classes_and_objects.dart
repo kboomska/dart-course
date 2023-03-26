@@ -154,6 +154,7 @@ class Car extends Vehicle {
 /// *******************************************************************************************
 /// Implicit interfaces
 
+/*
 void main() {
   var vehicle = Vehicle('Ford', 100);
   vehicle.move();
@@ -190,5 +191,43 @@ class Vehicle implements Car, Train {
 
   void speedMove() {
     print('With speed: $speed');
+  }
+}
+*/
+
+/// *******************************************************************************************
+/// Mixins
+
+void main() {
+  var vh = Vehicle('Ford', 90);
+  vh.move();
+
+  // var train = Train();
+  // train.speed = 40;
+  // train.speedMove();
+}
+
+class Car {
+  String name;
+
+  Car(this.name);
+
+  void move() {
+    print('The $name has started');
+  }
+}
+
+// To implement a Mixin, create a class that extends Object and declares no constructors.
+mixin Train {
+  int? speed;
+
+  void speedMove() {
+    print('The Train has started with $speed');
+  }
+}
+
+class Vehicle extends Car with Train {
+  Vehicle(name, sp) : super(name) {
+    speed = sp;
   }
 }
