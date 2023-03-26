@@ -1,6 +1,7 @@
 /// *******************************************************************************************
 /// Inheritance
 
+/*
 void main() {
   var myCar = Car();
   myCar.carName = 'BMW';
@@ -49,5 +50,46 @@ class Moto extends Vehicle {
 
   void roll() {
     print('Rolled over in the air');
+  }
+}
+*/
+
+/// *******************************************************************************************
+/// Inheritance and Constructors
+
+void main() {
+  // var myCar = Car();
+  // myCar.carName = 'BMW';
+  // myCar.color = 'Red';
+
+  var myCar = Car('BMW', 'Red');
+  myCar.start();
+  myCar.open();
+}
+
+class Vehicle {
+  String? color;
+
+  Vehicle.fromColor(var color) {
+    this.color = color;
+    print('Call Vehicle.fromColor: $color Constructor');
+  }
+
+  void start() {
+    print('Has started');
+  }
+}
+
+// Subclasses don’t inherit constructors from their superclass.
+class Car extends Vehicle {
+  String? carName;
+
+  Car(String carName, String color) : super.fromColor(color) {
+    this.carName = carName;
+    print('Call of Car. Name: $carName, Color: $color');
+  }
+
+  void open() {
+    print('Open doors');
   }
 }
