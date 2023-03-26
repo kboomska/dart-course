@@ -237,6 +237,7 @@ class Vehicle extends Car with Train {
 /// *******************************************************************************************
 /// Abstract Classes
 
+/*
 void main() {
   // Vehicle car = Vehicle(); // Can’t be instantiated.
 
@@ -264,5 +265,36 @@ class Car extends Vehicle {
 class Train extends Vehicle {
   void move() {
     print('The train moves on the road');
+  }
+}
+*/
+
+/// *******************************************************************************************
+/// Generics
+
+void main() {
+  Car car = Car('1', 'BMW');
+  print(car.id.runtimeType);
+  car.move('100');
+  // int id = car.id;
+  // print(id);
+
+  print('');
+
+  Car car1 = Car(1, 'BMW');
+  print(car1.id.runtimeType);
+  car1.move(100);
+}
+
+class Car<T> {
+  // int id;
+  // dynamic id;
+  T id;
+  String carName;
+
+  Car(this.id, this.carName);
+
+  void move<T>(T speed) {
+    print('The $carName. ID number: $id. Speed: $speed');
   }
 }
