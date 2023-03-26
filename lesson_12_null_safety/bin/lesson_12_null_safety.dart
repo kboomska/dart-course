@@ -51,6 +51,7 @@ Never valueIsNotDefined() {
 /// *******************************************************************************************
 /// Null-aware operators
 
+/*
 void main() {
   print(someValue(25));
   print(someValue(null));
@@ -95,4 +96,28 @@ int someValue(int? value) {
   // return value == null ? 0 : value;
 
   return value ?? 0;
+}
+*/
+
+/// *******************************************************************************************
+/// Null-aware cascade operator
+
+void main() {
+  // Path path = Path();
+
+  // path.moveTo(0, 0);
+  // path.lineTo(0, 2);
+  // path.lineTo(2, 2);
+
+  Path? path;
+
+  path
+    ?..moveTo(0, 0)
+    ..lineTo(0, 2)
+    ..lineTo(2, 2);
+}
+
+class Path {
+  void moveTo(int x, int y) {}
+  void lineTo(int x, int y) {}
 }
