@@ -98,7 +98,7 @@ class Car extends Vehicle {
 
 /// *******************************************************************************************
 /// Overriding methods, getters and setters
-
+/*
 void main() {
   var myCar = Car('BMW', 100, 'White');
   myCar.start();
@@ -147,5 +147,48 @@ class Car extends Vehicle {
 
   void open() {
     print('Open doors');
+  }
+}
+*/
+
+/// *******************************************************************************************
+/// Implicit interfaces
+
+void main() {
+  var vehicle = Vehicle('Ford', 100);
+  vehicle.move();
+  vehicle.speedMove();
+}
+
+class Car {
+  String name;
+  Car(this.name);
+
+  void move() {
+    print('The $name has started');
+  }
+}
+
+class Train {
+  int? speed;
+
+  void speedMove() {
+    print('The Train has started with $speed');
+  }
+}
+
+class Vehicle implements Car, Train {
+  String name; // name from Car
+
+  int? speed; // speed from Train
+
+  Vehicle(this.name, this.speed);
+
+  void move() {
+    print('The $name has started');
+  }
+
+  void speedMove() {
+    print('With speed: $speed');
   }
 }
