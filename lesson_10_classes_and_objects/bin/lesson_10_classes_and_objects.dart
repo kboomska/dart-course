@@ -198,6 +198,7 @@ class Vehicle implements Car, Train {
 /// *******************************************************************************************
 /// Mixins
 
+/*
 void main() {
   var vh = Vehicle('Ford', 90);
   vh.move();
@@ -229,5 +230,39 @@ mixin Train {
 class Vehicle extends Car with Train {
   Vehicle(name, sp) : super(name) {
     speed = sp;
+  }
+}
+*/
+
+/// *******************************************************************************************
+/// Abstract Classes
+
+void main() {
+  // Vehicle car = Vehicle(); // Can’t be instantiated.
+
+  Car car = Car();
+  car.move();
+
+  print('');
+
+  Train train = Train();
+  train.move();
+}
+
+// This class is declared abstract and thus
+// can't be instantiated.
+abstract class Vehicle {
+  void move(); // Abstract method.
+}
+
+class Car extends Vehicle {
+  void move() {
+    print('The Car moves on the road');
+  }
+}
+
+class Train extends Vehicle {
+  void move() {
+    print('The train moves on the road');
   }
 }
