@@ -21,6 +21,7 @@ void main() {
 /// *******************************************************************************************
 /// Flow Analysis: Promotion & Definite Assignment
 
+/*
 void main() {
   print(someValue(25)); // 25
   print(someValue(null)); // 0
@@ -44,4 +45,54 @@ int someValue(int? value) {
 
 Never valueIsNotDefined() {
   throw ArgumentError('Value is not defined');
+}
+*/
+
+/// *******************************************************************************************
+/// Null-aware operators
+
+void main() {
+  print(someValue(25));
+  print(someValue(null));
+
+  print('');
+
+  int? age;
+  print(age); // null
+  age ??= 20;
+  print(age); // 20
+
+  print('');
+
+  print(absoluteValue(-25)); // 25
+  print(absoluteValue(null)); // 0
+
+  print('');
+
+  print(guaranteedNonNullValue(25));
+  // print(guaranteedNonNullValue(null)); // Unhandled exception
+
+  num? value = 10;
+  num otherValue = value as int;
+  print(otherValue);
+}
+
+int? absoluteValue(int? value) {
+  // return value?.abs();
+  return value?.abs() ?? 0;
+}
+
+int guaranteedNonNullValue(int? value) {
+  return value!;
+}
+
+int someValue(int? value) {
+  // if (value == null) {
+  //   return 0;
+  // }
+  // return value;
+
+  // return value == null ? 0 : value;
+
+  return value ?? 0;
 }
