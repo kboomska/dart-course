@@ -127,6 +127,7 @@ class Path {
 /// *******************************************************************************************
 /// Late variables
 
+/*
 // int global; // Global variables must be initialized
 late int global; // Allowed
 
@@ -171,4 +172,70 @@ class Pizza {
     print('Coocking pizza...');
     return 'Pizza ($id): $name, price: $price';
   }
+}
+*/
+
+/// *******************************************************************************************
+/// Null safety and collections
+
+void main() {
+  // Lists
+  List<String?> nullableValues = [null, 'London', null, 'Moscow', 'NY'];
+
+  nullableValues[0] ??= 'SPB'; // [SPB, London, null, Moscow, NY]
+  print(nullableValues);
+
+  String someString = nullableValues[2] ?? 'Vologda';
+  print(someString); // Vologda
+
+  print('');
+
+  List<String>? nullableList;
+  // print(nullableList![0]); // Unhandled exception
+  print(nullableList?[0]); // null
+
+  print('');
+
+  List<String?>? nullableListAndNullableValue = [null, 'someString'];
+
+  print(nullableListAndNullableValue[0]);
+
+  nullableListAndNullableValue[0] ??= 'SPB';
+  print(nullableListAndNullableValue);
+
+  String anotherString = nullableListAndNullableValue[0] ?? 'Vologda';
+  print(anotherString);
+
+  print('');
+
+  // Maps
+  Map<String, int> categories = {'Kitchen': 1, 'Bedroom': 2};
+  print(categories['Room']); // null
+
+  int value1 = categories['Room'] ?? 3;
+  print(value1); // 3
+
+  print('');
+
+  int value2 = categories['Room'] ??= 3;
+  print(value2); // 3
+  print(categories); // {Kitchen: 1, Bedroom: 2, Room: 3}
+
+  print('');
+
+  int? value3 = categories['Kitchen'];
+  print(value3); // 1
+  print(categories);
+
+  print('');
+
+  int value4 = categories['Kitchen']!;
+  print(value4); // 1
+  print(categories);
+
+  print('');
+
+  Map<String, int>? nullableMap;
+  Map<String, int?> nullableValuesMap = {'null': null};
+  Map<String, int?>? nullableMapAndNullableValues;
 }
