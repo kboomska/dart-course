@@ -102,6 +102,7 @@ int someValue(int? value) {
 /// *******************************************************************************************
 /// Null-aware cascade operator
 
+/*
 void main() {
   // Path path = Path();
 
@@ -120,4 +121,54 @@ void main() {
 class Path {
   void moveTo(int x, int y) {}
   void lineTo(int x, int y) {}
+}
+*/
+
+/// *******************************************************************************************
+/// Late variables
+
+// int global; // Global variables must be initialized
+late int global; // Allowed
+
+void main() {
+  // var pizza = Pizza().printPizza(); // Coocking pizza...
+  // print(pizza); // Pizza (1): Spring, price: 10.0
+
+  late var pizza = Pizza().printPizza();
+  // print(pizza);
+
+  global = 1;
+  print(global);
+}
+
+class Pizza {
+  // int id = 1;
+  // String name = 'Spring';
+  // double price = 10;
+
+  // int id;
+  // String name;
+  // double price;
+
+  // Pizza()
+  //     : id = 1,
+  //       name = 'Spring',
+  //       price = 10;
+
+  // Pizza(this.id, this.name, this.price);
+
+  late int id;
+  late String name;
+  late final double price;
+
+  Pizza() {
+    id = 1;
+    name = 'Spring';
+    price = 10;
+  }
+
+  String printPizza() {
+    print('Coocking pizza...');
+    return 'Pizza ($id): $name, price: $price';
+  }
 }
